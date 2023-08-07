@@ -1,0 +1,16 @@
+<div *ngIf="compras.length > 0">
+    <h2>Listado de Compras</h2>
+    <ul>
+      <li *ngFor="let compra of compras">
+        Compra {{ compra.id }} - Fecha: {{ compra.fecha | date }} - Usuario: {{ compra.usuarioId }}
+        <ul>
+            <li *ngFor="let producto of compra.productos">
+                {{ producto.nombre }} - {{ producto.precio | currency }}
+            </li>
+        </ul>
+      </li>
+    </ul>
+</div>
+<div *ngIf="compras.length === 0">
+    <p>No se encontraron compras.</p>
+</div>
